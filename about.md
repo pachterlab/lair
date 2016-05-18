@@ -19,6 +19,5 @@ we are planning to analyze, as well as the meta-data files about those
 experiments pulled from the [Short Read Archive](http://www.ncbi.nlm.nih.gov/sra)
 
 <div style="align: left; text-align:center">
-    <img src="/_images/Bear_cubs.jpg">
-    <figcaption style="font-size: 1em;">A sleuth of bear cubs!</figcaption>
+    <img src="/_images/bear_cubs.jpg">
 </div>
