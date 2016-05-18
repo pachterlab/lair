@@ -4,12 +4,14 @@ title: About
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](http://jekyllrb.com/)
+Welcome to the bear's lair!
+In the future, this website will house a publicly available
+database of RNA-seq papers combined with their (re-)analysis performed
+using [Kallisto](https://pachterlab.github.io/kallisto/) and [Sleuth](http://pachterlab.github.io/sleuth/).
 
-You can find the source code for the Jekyll new theme at:
-{% include icon-github.html username="jglovier" %} /
-[jekyll-new](https://github.com/jglovier/jekyll-new)
+For now though, the website is under construction. You can check out the github
+for this project at {% include icon-github.html %}[bears_analysis](https://github.com/pachterlab/bears_analyses).
 
-You can find the source code for Jekyll at
-{% include icon-github.html username="jekyll" %} /
-[jekyll](https://github.com/jekyll/jekyll)
+At the moment, the [Papers](/papers) page contains a basic list of papers
+we are planning to analyze, as well as the meta-data files about those
+experiments pulled from the [Short Read Archive](http://www.ncbi.nlm.nih.gov/sra)
