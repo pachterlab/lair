@@ -1,4 +1,3 @@
-/transcriptome
-*/results
-*.kidx
-.snakemake/
+_site
+.sass-cache
+.jekyll-metadata

@@ -1,0 +1,24 @@
+---
+layout: page
+title: Papers
+permalink: /papers/
+---
+{% include base.html %}
+{% for root in site.data %}
+    {% unless root contains 'species' %}
+        {% for item in root %}
+            {% if item contains 'config' %}
+                <h4>{{ item.config.directory }} </h4>
+                <p>
+                    <iframe src="/_data/{{item.directory}}/{{item.config.design_file}}" width="800px"></iframe> <br />
+                    DOI: {{ item.config.DOI }} <br />
+                    {% if item.config.use_paired_end %}
+                        Paired_end
+                    {% else %}
+                        Single_end
+                    {% endif %}
+                </p><br />
+            {% endif %}
+        {% endfor %}
+    {% endunless %}
+{% endfor %}
