@@ -1,6 +1,6 @@
 /**
- * Site header
- */
+* Site header
+*/
 .site-header {
     height: 60px;
     background-color: #3475b4;
@@ -12,6 +12,20 @@
 
     // Positioning context for the mobile navigation icon
     position: relative;
+}
+
+.site-title-active {
+    font-size: 26px;
+    font-weight: 400;
+    line-height: 56px;
+    letter-spacing: 0px;
+    margin-bottom: 0;
+
+    &,
+    &:visited {
+        color: white;
+        text-decoration: underline;
+    }
 }
 
 .site-title {
@@ -27,12 +41,58 @@
     }
 }
 
+.intro-wrapper {
+    max-width: 910px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.intro {
+    background-color: #DDD;
+    margin: 1em 1em 0 1em;
+    padding: .75em;
+    text-align: center;
+    border: 1px solid #CCC;
+    font-size: 18px;
+    min-height: 30px;
+}
+
+.intro-text {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    width: 10%;
+}
+
+.intro-body {
+    background-color: #F5F5F5;
+}
+
+.paper-text {
+    margin-right: -10px;
+    margin-top: 10px;
+    float: left;
+    line-height: 24px;
+
+}
+
 .site-nav {
     float: right;
     line-height: 56px;
 
     .menu-icon {
         display: none;
+    }
+
+    .page-link-active {
+        color: white;
+        line-height: $base-line-height;
+        text-decoration: underline;
+
+        // Gaps between nav items, but not on the last one
+        &:not(:last-child) {
+            margin-right: 20px;
+        }
     }
 
     .page-link {
@@ -98,8 +158,8 @@
 
 
 /**
- * Site footer
- */
+* Site footer
+*/
 .site-footer {
     border-top: 1px solid $grey-color-light;
     padding: $spacing-unit 0;
@@ -168,8 +228,8 @@
 
 
 /**
- * Page content
- */
+* Page content
+*/
 .page-content {
     padding: $spacing-unit 0;
 }
@@ -200,8 +260,8 @@
 
 
 /**
- * Posts
- */
+* Posts
+*/
 .post-header {
     margin-bottom: $spacing-unit;
 }

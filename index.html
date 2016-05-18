@@ -3,9 +3,8 @@ layout: default
 ---
 
 <div class="home">
-
+<!--
   <h1 class="page-heading">Posts</h1>
-
   <ul class="post-list">
     {% for post in site.posts %}
       <li>
@@ -16,8 +15,26 @@ layout: default
         </h2>
       </li>
     {% endfor %}
-  </ul>
+</ul>
+
+
 
   <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+ -->
+
+ <div class="intro-wrapper">
+     <div class="intro">
+         <p class="intro-text"><strong>Reanalysis of published RNA-Seq data
+             using <a href="http://pachterlab.github.io/kallisto/">kallisto</a>
+             and <a href="http://pachterlab.github.io/sleuth/">sleuth</a></strong>
+         </p>
+     </div>
+     <div class="paper-text">
+         [<a href="http://lair.berkeley.edu/ellahi/"><b>analysis</b></a>,
+         <a href="http://www.genetics.org/content/early/2015/03/30/genetics.115.175711.short"><b>paper</b></a>]
+         Ellahi, Aisha, Deborah M. Thurtle, and Jasper Rine. "The Chromatin and Transcriptional Landscape of Native
+         Saccharomyces cerevisiae Telomeres and Subtelomeric Domains." Genetics (2015): genetics-115.
+     </div>
+ </div>
 
 </div>
