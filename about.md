@@ -4,8 +4,6 @@ title: About
 permalink: /about/
 ---
 
-
-
 Welcome to the bear's lair!
 In the future, this website will house a publicly available
 database of RNA-seq papers combined with their (re-)analysis performed
