@@ -5,51 +5,50 @@ permalink: /papers/
 ---
 <div class="container">
     <div class="table-responsive">
-        <div>
-            <table class ="table table-striped paper-table">
-                <tr class ="row">
-                    <td class="col-md-3">
-                        <strong>Paper_name</strong>
-                    </td>
-                    <td class="col-md-1">
-                        <strong>Design Matrix</strong>
-                    </td>
-                    <td class="col-md-2">
-                        <strong>DOI</strong>
-                    </td>
-                    <td class="col-md-1">
-                        <strong>Read-type</strong>
-                    </td>
-                </tr>
-                {% for root in site.data %}
-                {% unless root contains 'species' %}
-                {% for item in root %}
-                {% if item contains 'config' %}
-                <tr class="row">
-                    <td class="col-md-3">
-                        {{ item.config.directory }}
-                    </td>
-                    <td class="col-md-1">
-                        <a href="/_data/{{item.directory}}/{{item.config.design_file}}">
-                            SraRunTable.txt
-                        </a>
-                    </td>
-                    <td class="col-md-2">
-                        {{ item.config.DOI }}
-                    </td>
-                    <td class="col-md-1">
-                        {% if item.config.use_paired_end %}
-                        Paired_end
-                        {% else %}
-                        Single_end
-                        {% endif %}
-                    </td>
-                </tr>
-                {% endif %}
-                {% endfor %}
-                {% endunless %}
-                {% endfor %}
-            </table>
-        </div>
+        <table class ="table table-striped paper-table">
+            <tr class ="row">
+                <td class="col-md-6">
+                    <strong>Paper Title</strong>
+                </td>
+                <td class="col-md-2">
+                    <strong>Authors</strong>
+                </td>
+                <td class="col-md-1">
+                    <strong>Publisher</strong>
+                </td>
+                <td class="col-md-1">
+                    <strong>Design Matrix</strong>
+                </td>
+                <td class="col-md-2">
+                    <strong>DOI</strong>
+                </td>
+            </tr>
+            {% for dictionary in site.data.doi_metadata %}
+            <tr class="row">
+                <td class="col-md-6">
+                    {{ dictionary.title }}
+                </td>
+                <td class="col-md-2">
+                    {% for author in dictionary.authors %}
+                    {{ author }}{% unless forloop.last == true %},{% endunless %}
+                    <br />
+                    {% endfor %}
+                </td>
+                <td class="col-md-1">
+                    {{ dictionary.publisher }}
+                </td>
+                <td class="col-md-1">
+                    <a href="/_data/{{dictionary.directory}}/{{dictionary.design_file}}">
+                        SraRunTable.txt
+                    </a>
+                </td>
+                <td class="col-md-2">
+                    <a href="{{dictionary.URL}}">
+                        {{ dictionary.DOI }}
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
     </div>
 </div>

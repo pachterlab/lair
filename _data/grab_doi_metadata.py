@@ -6,26 +6,33 @@ json_dictionaries = []
 
 
 for subdir, dirs, files in os.walk("."):
-	if 'config.json' in files:
-		with open(subdir + '/config.json') as json_file:
-			dictionary = json.load(json_file)
-			print(dictionary['directory'])
-			print(dictionary['DOI'])
-			if dictionary['DOI']:
-				response = urllib2.urlopen(base_dir + dictionary['DOI'])
-				status = response.getcode()
-				data = response.read()
-				if status == 200:
-					dictionary = json.loads(data)
-					json_dictionaries.append(dictionary['message'])
-			print("-------")
+    if 'config.json' in files:
+        with open(subdir + '/config.json') as json_file:
+            dictionary = json.load(json_file)
+            print '.',
+            if dictionary['DOI']:
+                response = urllib2.urlopen(base_dir + dictionary['DOI'])
+                status = response.getcode()
+                data = response.read()
+                if status == 200:
+                    read_dict = json.loads(data)
+                    read_dict = read_dict['message']
+                    authors = []
+                    dictionary['URL'] = read_dict['URL']
+                    num_authors = 0
+                    for author in read_dict['author']:
+                        if num_authors >= 3:
+                            authors.append('et al.')
+                            break
+                        authors.append(author['given'] + ' ' + author['family'])
+                        num_authors += 1
 
-for d in json_dictionaries:
-	print(d['title'])
-	print(d['author'])
-	print(d['URL'])
-	print(d['publisher'])
-	print("----")
+                    dictionary['authors'] = authors
+                    dictionary['title'] = read_dict['title'][0]
+                    dictionary['publisher'] = read_dict['publisher']
+                    json_dictionaries.append(dictionary)
 
-#with open('doi_metadata.json', 'w') as fp:
-#	json.dump(json_dictionaries, fp)
+with open('doi_metadata.json', 'w') as fp:
+    json.dump(json_dictionaries, fp)
+
+print("Metadata grabbing complete!")
