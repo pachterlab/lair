@@ -15,8 +15,9 @@ description: > # this means to ignore newlines until "baseurl:"
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://yourdomain.com" # the base hostname & protocol for your site
 github_username:  jekyll
-keep_files: ["_data"]
-include: ["_data"]
+keep_files: ["_data", "_images"]
+include: ["_data", "_images"]
+
 # Build settings
 markdown: kramdown
 

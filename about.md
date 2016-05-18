@@ -4,6 +4,8 @@ title: About
 permalink: /about/
 ---
 
+
+
 Welcome to the bear's lair!
 In the future, this website will house a publicly available
 database of RNA-seq papers combined with their (re-)analysis performed
@@ -15,3 +17,8 @@ for this project at {% include icon-github.html %}[bears_analysis](https://githu
 At the moment, the [Papers](/papers) page contains a basic list of papers
 we are planning to analyze, as well as the meta-data files about those
 experiments pulled from the [Short Read Archive](http://www.ncbi.nlm.nih.gov/sra)
+
+<div style="align: left; text-align:center">
+    <img src="/_images/Bear_cubs.jpg">
+    <figcaption style="font-size: 1em;">A sleuth of bear cubs!</figcaption>
+</div>
