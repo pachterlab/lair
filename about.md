@@ -16,6 +16,5 @@ At the moment, the [Papers](/papers) page contains a basic list of papers
 we are planning to analyze, as well as the meta-data files about those
 experiments pulled from the [Short Read Archive](http://www.ncbi.nlm.nih.gov/sra)
 
-<div style="align: left; text-align:center">
-    <img src="/_images/bear_cubs.jpg">
-</div>
+
+<img src="/_images/bears_large.jpg">
