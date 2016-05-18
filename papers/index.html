@@ -10,7 +10,7 @@ permalink: /papers/
             {% if item contains 'config' %}
                 <h4>{{ item.config.directory }} </h4>
                 <p>
-                    <iframe src="/_data/{{item.directory}}/{{item.config.design_file}}" width="800px"></iframe> <br />
+                    <a href="/_data/{{item.directory}}/{{item.config.design_file}}">{{item.config.design_file}}</a> <br />
                     DOI: {{ item.config.DOI }} <br />
                     {% if item.config.use_paired_end %}
                         Paired_end
