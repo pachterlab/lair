@@ -10,7 +10,7 @@ permalink: /papers/
             <table class="table table-striped paper-table" id="paper_table">
                 <thead>
                     <tr class ="row">
-                        <th>
+                        <th class="col-md-3">
                                 Title
                         </th>
                         <th class="col-md-2">
@@ -27,9 +27,9 @@ permalink: /papers/
                         </th>
                     </tr>
                 </thead>
-                <tfoot>
-                    <tr class ="row">
-                        <th>
+                <tfoot style="display: table-row-group;">
+                    <tr class="row">
+                        <th class="col-md-3">
                                 Title
                         </th>
                         <th class="col-md-2">
@@ -38,9 +38,9 @@ permalink: /papers/
                         <th class="col-md-1">
                                 Publisher
                         </th>
-                        <th class="col-md-1">
-                                Design Matrix
-                        </th>
+                        <td class="col-md-1">
+
+                        </td>
                         <th class="col-md-2">
                                 DOI
                         </th>
@@ -62,7 +62,7 @@ permalink: /papers/
                             {{ dictionary.publisher }}
                         </td>
                         <td class="col-md-1">
-                            <a href="/_data/{{dictionary.directory}}/{{dictionary.design_file}}">
+                            <a href="/_data/{{dictionary.design_file}}">
                                 SraRunTable.txt
                             </a>
                         </td>
@@ -84,7 +84,7 @@ permalink: /papers/
         // Setup - add a text input to each footer cell
         $('#paper_table tfoot th').each( function () {
             var title = $(this).text();
-            $(this).html( '<input type="text" placeholder="Search '+title+'" />' );
+            $(this).html( '<input type="text" placeholder="Search '+ title +'" />' );
         } );
 
         // DataTable
