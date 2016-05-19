@@ -7,34 +7,46 @@ permalink: /papers/
 <body>
     <div class="container">
         <div class="table-responsive" id="papers">
-            <input class="search" placeholder="Search" />
-            <table class="table table-striped paper-table">
-                <tr class ="row">
-                    <th>
-                        <button class="sort" data-sort="title">
-                            Title
-                        </button>
-                    </th>
-                    <th class="col-md-2">
-                        <button class="sort" data-sort="authors">
-                            Authors
-                        </button>
-                    </th>
-                    <th class="col-md-1">
-                        <button class="sort" data-sort="publisher">
-                            Publisher
-                        </button>
-                    </th>
-                    <th class="col-md-1">
-                        <strong>Design Matrix</strong>
-                    </th>
-                    <th class="col-md-2">
-                        <button class="sort" data-sort="DOI">
-                            DOI
-                        </button>
-                    </th>
-                </tr>
-                <tbody class="list">
+            <table class="table table-striped paper-table" id="paper_table">
+                <thead>
+                    <tr class ="row">
+                        <th>
+                                Title
+                        </th>
+                        <th class="col-md-2">
+                                Authors
+                        </th>
+                        <th class="col-md-1">
+                                Publisher
+                        </th>
+                        <th class="col-md-1">
+                                Design Matrix
+                        </th>
+                        <th class="col-md-2">
+                                DOI
+                        </th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr class ="row">
+                        <th>
+                                Title
+                        </th>
+                        <th class="col-md-2">
+                                Authors
+                        </th>
+                        <th class="col-md-1">
+                                Publisher
+                        </th>
+                        <th class="col-md-1">
+                                Design Matrix
+                        </th>
+                        <th class="col-md-2">
+                                DOI
+                        </th>
+                    </tr>
+                </tfoot>
+                <tbody>
                     {% for dictionary in site.data.doi_metadata %}
                     <tr class="row">
                         <td class="col-md-6 title">
@@ -65,14 +77,34 @@ permalink: /papers/
             </table>
         </div>
     </div>
-    <script src="/_data/list.js">
-    </script>
+    <script src="/_data/jquery-1.12.0.min.js"></script>
+    <script src="/_data/jquery.dataTables.min.js"></script>
     <script>
-    var options = {
-        valueNames: [ 'title', 'authors', 'publisher', 'DOI' ]
-    };
+    $(document).ready(function() {
+        // Setup - add a text input to each footer cell
+        $('#paper_table tfoot th').each( function () {
+            var title = $(this).text();
+            $(this).html( '<input type="text" placeholder="Search '+title+'" />' );
+        } );
 
-    var userList = new List('papers', options);
+        // DataTable
+        var table = $('#paper_table').DataTable({
+            "sDom": 'rt'
+        });
+
+        // Apply the search
+        table.columns().every( function () {
+            var that = this;
+
+            $( 'input', this.footer() ).on( 'keyup change', function () {
+                if ( that.search() !== this.value ) {
+                    that
+                    .search( this.value )
+                    .draw();
+                }
+            });
+        });
+    });
     </script>
 </body>
 </html>
