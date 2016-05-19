@@ -6,67 +6,67 @@ permalink: /papers/
 <html>
 <body>
     <div class="container">
-        <div class="table-responsive" id="papers">
-            <table class="table table-striped paper-table" id="paper_table">
+        <div class="table-responsive">
+            <table class="table-bordered display" cellspacing="0" width="100%" id="paper_table">
                 <thead>
-                    <tr class ="row">
-                        <th class="col-md-3">
+                    <tr>
+                        <th>
                                 Title
                         </th>
-                        <th class="col-md-2">
+                        <th>
                                 Authors
                         </th>
-                        <th class="col-md-1">
+                        <th>
                                 Publisher
                         </th>
-                        <th class="col-md-1">
+                        <th>
                                 Design Matrix
                         </th>
-                        <th class="col-md-2">
+                        <th>
                                 DOI
                         </th>
                     </tr>
                 </thead>
                 <tfoot style="display: table-row-group;">
-                    <tr class="row">
-                        <th class="col-md-3">
+                    <tr>
+                        <th>
                                 Title
                         </th>
-                        <th class="col-md-2">
-                                Authors
+                        <th>
+                                Author
                         </th>
-                        <th class="col-md-1">
+                        <th>
                                 Publisher
                         </th>
-                        <td class="col-md-1">
+                        <td>
 
                         </td>
-                        <th class="col-md-2">
+                        <th>
                                 DOI
                         </th>
                     </tr>
                 </tfoot>
                 <tbody>
                     {% for dictionary in site.data.doi_metadata %}
-                    <tr class="row">
-                        <td class="col-md-6 title">
+                    <tr>
+                        <td>
                             {{ dictionary.title }}
                         </td>
-                        <td class="col-md-2 authors">
+                        <td>
                             {% for author in dictionary.authors %}
                             {{ author }}{% unless forloop.last == true %},{% endunless %}
                             <br />
                             {% endfor %}
                         </td>
-                        <td class="col-md-1 publisher">
+                        <td>
                             {{ dictionary.publisher }}
                         </td>
-                        <td class="col-md-1">
+                        <td>
                             <a href="/_data/{{dictionary.design_file}}">
                                 SraRunTable.txt
                             </a>
                         </td>
-                        <td class="col-md-2 DOI">
+                        <td>
                             <a href="{{dictionary.URL}}">
                                 {{ dictionary.DOI }}
                             </a>
@@ -77,14 +77,16 @@ permalink: /papers/
             </table>
         </div>
     </div>
-    <script src="/_data/jquery-1.12.0.min.js"></script>
-    <script src="/_data/jquery.dataTables.min.js"></script>
+    <link href="/_datatables/jquery.dataTables.css" rel="stylesheet" type="text/css" />
+    <script src="/_datatables/jquery-1.12.0.min.js"></script>
+    <script src="/_datatables/jquery.dataTables.min.js"></script>
     <script>
     $(document).ready(function() {
         // Setup - add a text input to each footer cell
         $('#paper_table tfoot th').each( function () {
-            var title = $(this).text();
-            $(this).html( '<input type="text" placeholder="Search '+ title +'" />' );
+            var title = $(this).text().replace(/ /g,'');
+
+            $(this).html( '<input type="text" text-align="center" placeholder="Search '+ title +'s"/>' );
         } );
 
         // DataTable
