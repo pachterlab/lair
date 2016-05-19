@@ -9,7 +9,7 @@ for subdir, dirs, files in os.walk("."):
     if 'config.json' in files:
         with open(subdir + '/config.json') as json_file:
             dictionary = json.load(json_file)
-            print '.',
+            print dictionary['directory']
             if dictionary['DOI']:
                 response = urllib2.urlopen(base_dir + dictionary['DOI'])
                 status = response.getcode()
@@ -27,10 +27,24 @@ for subdir, dirs, files in os.walk("."):
                         authors.append(author['family'] + ', ' + author['given'])
                         num_authors += 1
 
+                    date = "?"
+                       
+                    if 'published-print' in read_dict:
+                        date_parts = read_dict['published-print']['date-parts'][0]
+                        date = '-'.join(str(x) for x in date_parts)
+                        date += " print"
+
+                    elif 'published-online' in read_dict:
+                        date_parts = read_dict['published-online']['date-parts'][0]
+                        date = '-'.join(str(x) for x in date_parts)
+                        date += " online"
+                                
+                    dictionary['date'] = date
                     dictionary['authors'] = authors
                     dictionary['title'] = read_dict['title'][0]
-                    dictionary['publisher'] = read_dict['publisher']
+                    dictionary['journal'] = read_dict['container-title'][0]
                     json_dictionaries.append(dictionary)
+
 
 with open('doi_metadata.json', 'w') as fp:
     json.dump(json_dictionaries, fp)

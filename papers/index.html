@@ -11,47 +11,44 @@ permalink: /papers/
                 <thead>
                     <tr>
                         <th>
-                                Title
+                            Authors
                         </th>
                         <th>
-                                Authors
+                            Title
                         </th>
                         <th>
-                                Publisher
+                            Journal
                         </th>
                         <th>
-                                Design Matrix
+                            Date
                         </th>
-                        <th>
-                                DOI
-                        </th>
+                        <td>
+
+                        </td>
                     </tr>
                 </thead>
                 <tfoot style="display: table-row-group;">
                     <tr>
                         <th>
-                                Title
+                            Author
                         </th>
                         <th>
-                                Author
+                            Title
                         </th>
                         <th>
-                                Publisher
+                            Journal
+                        </th>
+                        <th>
+                            Date
                         </th>
                         <td>
 
                         </td>
-                        <th>
-                                DOI
-                        </th>
                     </tr>
                 </tfoot>
                 <tbody>
                     {% for dictionary in site.data.doi_metadata %}
                     <tr>
-                        <td>
-                            {{ dictionary.title }}
-                        </td>
                         <td>
                             {% for author in dictionary.authors %}
                             {{ author }}{% unless forloop.last == true %},{% endunless %}
@@ -59,17 +56,23 @@ permalink: /papers/
                             {% endfor %}
                         </td>
                         <td>
-                            {{ dictionary.publisher }}
-                        </td>
-                        <td>
-                            <a href="/_data/{{dictionary.design_file}}">
-                                SraRunTable.txt
-                            </a>
-                        </td>
-                        <td>
                             <a href="{{dictionary.URL}}">
-                                {{ dictionary.DOI }}
+                                {{ dictionary.title }}
                             </a>
+                        </td>
+                        <td>
+                            {{ dictionary.journal }}
+                        </td>
+                        <td>
+                            {{ dictionary.date }}
+                        </td>
+                        <td>
+                            <form method="get" action="/_data/{{dictionary.design_file}}">
+                                <button type="submit" class="btn btn-primary" style="margin-bottom:10px;">Design Matrix</button>
+                            </form>
+                            <form method="" action="">
+                                <button type="button" class="btn btn-primary disabled">Analysis</button>
+                            </form>
                         </td>
                     </tr>
                     {% endfor %}
@@ -85,7 +88,6 @@ permalink: /papers/
         // Setup - add a text input to each footer cell
         $('#paper_table tfoot th').each( function () {
             var title = $(this).text().replace(/ /g,'');
-
             $(this).html( '<input type="text" text-align="center" placeholder="Search '+ title +'s"/>' );
         } );
 
