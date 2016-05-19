@@ -3,52 +3,76 @@ layout: alt
 title: Papers
 permalink: /papers/
 ---
-<div class="container">
-    <div class="table-responsive">
-        <table class ="table table-striped paper-table">
-            <tr class ="row">
-                <td class="col-md-6">
-                    <strong>Paper Title</strong>
-                </td>
-                <td class="col-md-2">
-                    <strong>Authors</strong>
-                </td>
-                <td class="col-md-1">
-                    <strong>Publisher</strong>
-                </td>
-                <td class="col-md-1">
-                    <strong>Design Matrix</strong>
-                </td>
-                <td class="col-md-2">
-                    <strong>DOI</strong>
-                </td>
-            </tr>
-            {% for dictionary in site.data.doi_metadata %}
-            <tr class="row">
-                <td class="col-md-6">
-                    {{ dictionary.title }}
-                </td>
-                <td class="col-md-2">
-                    {% for author in dictionary.authors %}
-                    {{ author }}{% unless forloop.last == true %},{% endunless %}
-                    <br />
+<html>
+<body>
+    <div class="container">
+        <div class="table-responsive" id="papers">
+            <input class="search" placeholder="Search" />
+            <table class="table table-striped paper-table">
+                <tr class ="row">
+                    <th>
+                        <button class="sort" data-sort="title">
+                            Title
+                        </button>
+                    </th>
+                    <th class="col-md-2">
+                        <button class="sort" data-sort="authors">
+                            Authors
+                        </button>
+                    </th>
+                    <th class="col-md-1">
+                        <button class="sort" data-sort="publisher">
+                            Publisher
+                        </button>
+                    </th>
+                    <th class="col-md-1">
+                        <strong>Design Matrix</strong>
+                    </th>
+                    <th class="col-md-2">
+                        <button class="sort" data-sort="DOI">
+                            DOI
+                        </button>
+                    </th>
+                </tr>
+                <tbody class="list">
+                    {% for dictionary in site.data.doi_metadata %}
+                    <tr class="row">
+                        <td class="col-md-6 title">
+                            {{ dictionary.title }}
+                        </td>
+                        <td class="col-md-2 authors">
+                            {% for author in dictionary.authors %}
+                            {{ author }}{% unless forloop.last == true %},{% endunless %}
+                            <br />
+                            {% endfor %}
+                        </td>
+                        <td class="col-md-1 publisher">
+                            {{ dictionary.publisher }}
+                        </td>
+                        <td class="col-md-1">
+                            <a href="/_data/{{dictionary.directory}}/{{dictionary.design_file}}">
+                                SraRunTable.txt
+                            </a>
+                        </td>
+                        <td class="col-md-2 DOI">
+                            <a href="{{dictionary.URL}}">
+                                {{ dictionary.DOI }}
+                            </a>
+                        </td>
+                    </tr>
                     {% endfor %}
-                </td>
-                <td class="col-md-1">
-                    {{ dictionary.publisher }}
-                </td>
-                <td class="col-md-1">
-                    <a href="/_data/{{dictionary.directory}}/{{dictionary.design_file}}">
-                        SraRunTable.txt
-                    </a>
-                </td>
-                <td class="col-md-2">
-                    <a href="{{dictionary.URL}}">
-                        {{ dictionary.DOI }}
-                    </a>
-                </td>
-            </tr>
-            {% endfor %}
-        </table>
+                </tbody>
+            </table>
+        </div>
     </div>
-</div>
+    <script src="/_data/list.js">
+    </script>
+    <script>
+    var options = {
+        valueNames: [ 'title', 'authors', 'publisher', 'DOI' ]
+    };
+
+    var userList = new List('papers', options);
+    </script>
+</body>
+</html>

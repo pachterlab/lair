@@ -24,7 +24,7 @@ for subdir, dirs, files in os.walk("."):
                         if num_authors >= 3:
                             authors.append('et al.')
                             break
-                        authors.append(author['given'] + ' ' + author['family'])
+                        authors.append(author['family'] + ', ' + author['given'])
                         num_authors += 1
 
                     dictionary['authors'] = authors
