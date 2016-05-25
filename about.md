@@ -17,4 +17,4 @@ we are planning to analyze, as well as the meta-data files about those
 experiments pulled from the [Short Read Archive](http://www.ncbi.nlm.nih.gov/sra)
 
 
-<img src="/_images/bears_large.jpg">
+<img src="{{ site.baseurl }}/_images/bears_large.jpg">
