@@ -37,9 +37,6 @@ for subdir, dirs, files in os.walk("/home/psturm/bears_analyses/"):
                         date_parts = read_dict['published-online']['date-parts'][0]
                         date = '-'.join(str(x) for x in date_parts)
                         date += " online"
-
-                    if 'analysis' in read_dict:
-                        dictionary['analysis'] = read_dict['analysis']
                                 
                     dictionary['date'] = date
                     dictionary['authors'] = authors
