@@ -15,4 +15,4 @@ The [Papers](/papers) page contains a basic list of papers
 and links to their analysis as well as the meta-data files about those
 experiments pulled from the [Short Read Archive](http://www.ncbi.nlm.nih.gov/sra)
 
-<img src="{{ site.baseurl }}/_images/bears_large.jpg">
+<img src="{{ site.baseurl }}/_images/bears_large_compress.jpg">

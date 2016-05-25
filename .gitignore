@@ -6,3 +6,5 @@
 .sass-cache/
 _site/
 .jekyll-metadata
+
+*.DS_Store*
