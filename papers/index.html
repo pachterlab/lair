@@ -67,7 +67,7 @@ permalink: /papers/
                             {{ dictionary.date }}
                         </td>
                         <td>
-                            <form method="get" action="/_data/{{dictionary.design_file}}">
+                            <form method="get" action="{{ site.baseurl }}/_data/{{dictionary.design_file}}">
                                 <button type="submit" class="btn btn-primary" style="margin-bottom:10px;">Design Matrix</button>
                             </form>
                             <form method="" action="">
@@ -80,9 +80,9 @@ permalink: /papers/
             </table>
         </div>
     </div>
-    <link href="/_datatables/jquery.dataTables.css" rel="stylesheet" type="text/css" />
-    <script src="/_datatables/jquery-1.12.0.min.js"></script>
-    <script src="/_datatables/jquery.dataTables.min.js"></script>
+    <link href="{{ site.baseurl }}/_datatables/jquery.dataTables.css" rel="stylesheet" type="text/css" />
+    <script src="{{ site.baseurl }}/_datatables/jquery-1.12.0.min.js"></script>
+    <script src="{{ site.baseurl }}/_datatables/jquery.dataTables.min.js"></script>
     <script>
     $(document).ready(function() {
         // Setup - add a text input to each footer cell
