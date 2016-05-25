@@ -4,8 +4,7 @@ import os, json, urllib2
 base_dir = 'http://api.crossref.org/works/'
 json_dictionaries = []
 
-
-for subdir, dirs, files in os.walk("."):
+for subdir, dirs, files in os.walk("/home/psturm/bears_analyses/"):
     if 'config.json' in files:
         with open(subdir + '/config.json') as json_file:
             dictionary = json.load(json_file)
