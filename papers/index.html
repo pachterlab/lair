@@ -67,9 +67,15 @@ permalink: /papers/
                             {{ dictionary.date }}
                         </td>
                         <td>
-                            <form method="" action="">
+                                {% if dictionary.analysis %}
+                                <form method="" action="{{dictionary.analysis}}">
+                                <button type="button" class="btn btn-primary">Analysis</button>
+                                </form>
+                                {% else %}
+                                <form method="" action="">
                                 <button type="button" class="btn btn-primary disabled">Analysis</button>
-                            </form>
+                                </form>
+                                {% endif %}
                         </td>
                     </tr>
                     {% endfor %}
