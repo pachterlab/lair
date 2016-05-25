@@ -27,4 +27,6 @@ results more verifiable and reproducible. Furthermore, it allows
 others to discover interesting results about an RNA-seq experiment
 that may not have been included in the original paper.
 
+This project was created by the [Pachter Lab](http://pachterlab.github.io).
+
 <img src="{{ site.baseurl }}/_images/bears_large_compress.jpg">
