@@ -6,7 +6,7 @@
 # 'jekyll serve'. If you change this file, please restart the server process.
 
 # Site settings
-title: The Bear's Lair
+title: the bear's lair
 email: your-email@domain.com
 description: > # this means to ignore newlines until "baseurl:"
   The bear's lair is a public collection of RNA-seq papers combined with
