@@ -13,8 +13,8 @@ description: > # this means to ignore newlines until "baseurl:"
   live analysis done by Kallisto and Sleuth. Our aim is to make RNA-seq
   data and analysis both publicly available and easy to view without
   multiple processors.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://yourdomain.com" # the base hostname & protocol for your site
+baseurl: "/lair" # the subpath of your site, e.g. /blog
+url: "http://pachterlab.github.io" # the base hostname & protocol for your site
 github_username:  jekyll
 keep_files: ["_data", "_images", "_datatables"]
 include: ["_data", "_images", "_datatables"]
