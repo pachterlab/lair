@@ -18,13 +18,8 @@ for subdir, dirs, files in os.walk("/home/psturm/bears_analyses/"):
                     read_dict = read_dict['message']
                     authors = []
                     dictionary['URL'] = read_dict['URL']
-                    num_authors = 0
                     for author in read_dict['author']:
-                        if num_authors >= 3:
-                            authors.append('et al.')
-                            break
                         authors.append(author['family'] + ', ' + author['given'])
-                        num_authors += 1
 
                     date = "?"
                        
