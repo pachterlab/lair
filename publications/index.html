@@ -16,11 +16,14 @@ permalink: /publications/
                         <th>
                             Title
                         </th>
-                        <th>
+                        <th style="max-width: 80px;">
                             Journal
                         </th>
-                        <th>
+                        <th style="max-width: 80px;">
                             Date
+                        </th>
+                        <th>
+                            Transcriptome
                         </th>
                         <td>
 
@@ -35,11 +38,14 @@ permalink: /publications/
                         <th>
                             Title
                         </th>
-                        <th>
+                        <th style="max-width: 80px;">
                             Journal
                         </th>
-                        <th>
+                        <th style="max-width: 80px;">
                             Date
+                        </th>
+                        <th>
+                            Transcriptome
                         </th>
                         <td>
 
@@ -60,22 +66,13 @@ permalink: /publications/
                                 {{ dictionary.title }}
                             </a>
                         </td>
-                        <td>
+                        <td style="max-width: 80px;">
                             {{ dictionary.journal }}
                         </td>
-                        <td>
+                        <td style="max-width: 80px;">
                             {{ dictionary.date }}
                         </td>
                         <td>
-                                {% if dictionary.analysis %}
-                                <form method="" action="{{dictionary.analysis}}" target="_blank">
-                                <button type="button input" class="btn btn-primary">Analysis</button>
-                                </form>
-                                {% else %}
-                                <form method="" action="">
-                                <button type="button" class="btn btn-primary disabled">Analysis in progress</button>
-                                </form>
-                                {% endif %}
                                 {% if dictionary.species %}
                                     {% if dictionary.fasta-link %}
                                     <form method="" action="{{dictionary.fasta-link}}" target="_blank" style="margin-top:5px;">
@@ -83,6 +80,17 @@ permalink: /publications/
                                     </form>
                                     {% endif %}
                                 {% endif %}
+                        </td>
+                        <td>
+                            {% if dictionary.analysis %}
+                            <form method="" action="{{dictionary.analysis}}" target="_blank">
+                            <button type="button input" class="btn btn-primary">Analysis</button>
+                            </form>
+                            {% else %}
+                            <form method="" action="">
+                            <button type="button" class="btn btn-primary disabled">Analysis in progress</button>
+                            </form>
+                            {% endif %}
                         </td>
                     </tr>
                     {% endfor %}
@@ -98,7 +106,15 @@ permalink: /publications/
         // Setup - add a text input to each footer cell
         $('#paper_table tfoot th').each( function () {
             var title = $(this).text().replace(/ /g,'');
-            $(this).html( '<input type="text" text-align="center" placeholder="Search '+ title +'s"/>' );
+            if (title.includes("Journal")) {
+                $(this).html( '<input type="text" style="max-width: 80px;" text-align="center" placeholder="Search"/>' );
+            }
+            else if (title.includes("Date")) {
+                $(this).html( '<input type="text" style="max-width: 80px;" text-align="center" placeholder="Search"/>' );
+            }
+            else {
+                $(this).html( '<input type="text" text-align="center" placeholder="Search '+ title +'s"/>' );
+            }
         } );
 
         // DataTable
