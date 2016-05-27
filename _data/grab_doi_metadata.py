@@ -19,17 +19,17 @@ for subdir, dirs, files in os.walk("/home/psturm/bears_analyses/"):
                     read_dict = read_dict['message']
                     authors = []
                     dictionary['URL'] = read_dict['URL']
-                    
+
                     num_authors = 0
                     for author in read_dict['author']:
                         if num_authors >= 10:
                             authors.append('et al.')
                             break
                         authors.append(author['family'] + ', ' + author['given'])
-                        num_authors += 1                            
+                        num_authors += 1
 
                     date = "?"
-                       
+
                     if 'published-print' in read_dict:
                         date_parts = read_dict['published-print']['date-parts'][0]
                         date = '-'.join(str(x) for x in date_parts)
@@ -39,7 +39,9 @@ for subdir, dirs, files in os.walk("/home/psturm/bears_analyses/"):
                         date_parts = read_dict['published-online']['date-parts'][0]
                         date = '-'.join(str(x) for x in date_parts)
                         date += " online"
-                    dictionary['fasta-link'] = species_dict[dictionary['species']]                                
+                    dictionary['fasta-link'] = species_dict[dictionary['species']]
+                    dictionary['species'] = dictionary['species'].capitalize()
+                    dictionary['species'] = dictionary['species'].replace('_', ' ')
                     dictionary['date'] = date
                     dictionary['authors'] = authors
                     dictionary['title'] = read_dict['title'][0]
