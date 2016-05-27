@@ -1,5 +1,6 @@
-import os, json, urllib2
-
+import os, json, urllib2, sys
+sys.path.append('/home/psturm/bears_analyses')
+from species import species_dict
 
 base_dir = 'http://api.crossref.org/works/'
 json_dictionaries = []
@@ -38,7 +39,7 @@ for subdir, dirs, files in os.walk("/home/psturm/bears_analyses/"):
                         date_parts = read_dict['published-online']['date-parts'][0]
                         date = '-'.join(str(x) for x in date_parts)
                         date += " online"
-                                
+                    dictionary['fasta-link'] = species_dict[dictionary['species']]                                
                     dictionary['date'] = date
                     dictionary['authors'] = authors
                     dictionary['title'] = read_dict['title'][0]
