@@ -9,12 +9,12 @@ for subdir, dirs, files in os.walk("/home/psturm/bears_analyses/"):
     if 'config.json' in files:
         with open(subdir + '/config.json') as json_file:
             dictionary = json.load(json_file)
-            print dictionary['directory']
             if dictionary['DOI']:
                 response = urllib2.urlopen(base_dir + dictionary['DOI'])
                 status = response.getcode()
                 data = response.read()
                 if status == 200:
+                    print dictionary['directory']
                     read_dict = json.loads(data)
                     read_dict = read_dict['message']
                     authors = []
