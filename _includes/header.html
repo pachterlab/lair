@@ -1,27 +1,41 @@
-<header class="site-header">
+<html>
 
-  <div class="wrapper">
-      <nav class="site-nav">
-    {% if page.url == "/" %}
-        <a class="site-title-active" href="{{ site.baseurl }}/">{{ site.title }}</a>
-    {% else %}
-        <a class="site-title" href="{{ site.baseurl }}/">{{ site.title }}</a>
-    {% endif %}
+<head>
 
+<nav class="nav navbar navbar-inverse navbar-custom site-nav site-header">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      {% if page.url == "/" %}
+       <a class="site-title-active" href="{{ site.baseurl }}/">{{ site.title }}</a>
+       {% else %}
+       <a class="site-title" href="{{ site.baseurl }}/">{{ site.title }}</a>
+       {% endif %}
+    </div>
 
-      <div class="trigger" style="float: right;">
-        {% for my_page in site.pages %}
-          {% if my_page.title %}
-            {% if my_page.url == page.url %}
-                <a class="page-link-active" href="{{ my_page.url | prepend: site.baseurl }}">{{ my_page.title }}</a>
-            {% else %}
-                <a class="page-link" href="{{ my_page.url | prepend: site.baseurl }}">{{ my_page.title }}</a>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+          {% for my_page in site.pages %}
+            {% if my_page.title %}
+            <li>
+              {% if my_page.url == page.url %}
+                  <a class="page-link-active" href="{{ my_page.url | prepend: site.baseurl }}">{{ my_page.title }}</a>
+              {% else %}
+                  <a class="page-link" href="{{ my_page.url | prepend: site.baseurl }}">{{ my_page.title }}</a>
+              {% endif %}
+          </li>
             {% endif %}
-          {% endif %}
-        {% endfor %}
-      </div>
-    </nav>
-
-  </div>
-
-</header>
+          {% endfor %}
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+</head>
+</html>
