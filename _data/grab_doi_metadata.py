@@ -29,7 +29,7 @@ for subdir, dirs, files in os.walk("/home/psturm/bears_analyses/"):
                         num_authors += 1
 
                     date = "?"
-
+	
                     if 'published-print' in read_dict:
                         date_parts = read_dict['published-print']['date-parts'][0]
                         date = '-'.join(str(x) for x in date_parts)

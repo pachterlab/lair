@@ -89,7 +89,12 @@ permalink: /publications/
                             <button type="button" class="btn btn-primary disabled">Analysis in progress</button>
                             </form>
                             {% endif %}
-                        </td>
+     						{% if dictionary.dropped %}
+                            <form method="" action="{{dictionary.dropped}}" target="_blank">
+                            <button type="button input" class="btn btn-primary">Dropped</button>
+                            </form>
+							{% endif %}
+						</td>
                     </tr>
                     {% endfor %}
                 </tbody>
