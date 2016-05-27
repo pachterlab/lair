@@ -1,6 +1,7 @@
 <header class="site-header">
 
   <div class="wrapper">
+      <nav class="site-nav">
     {% if page.url == "/" %}
         <a class="site-title-active" href="{{ site.baseurl }}/">{{ site.title }}</a>
     {% else %}
@@ -8,8 +9,7 @@
     {% endif %}
 
 
-    <nav class="site-nav">
-      <div class="trigger">
+      <div class="trigger" style="float: right;">
         {% for my_page in site.pages %}
           {% if my_page.title %}
             {% if my_page.url == page.url %}
