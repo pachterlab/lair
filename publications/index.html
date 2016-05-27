@@ -76,6 +76,13 @@ permalink: /publications/
                                 <button type="button" class="btn btn-primary disabled">Analysis in progress</button>
                                 </form>
                                 {% endif %}
+                                {% if dictionary.species %}
+                                    {% if dictionary.fasta-link %}
+                                    <form method="" action="{{dictionary.fasta-link}}" target="_blank">
+                                        <button type="button input" class="btn btn-primary">{{ dictionary.species }}.fa</button>
+                                    </form>
+                                    {% endif %}
+                                {% endif %}
                         </td>
                     </tr>
                     {% endfor %}
