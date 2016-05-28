@@ -2,6 +2,10 @@
 
 <head>
 
+{% if jekyll.environment == 'production' %}
+{% include analytics.html %}
+{% endif %}
+
 <nav class="nav navbar navbar-default navbar-custom site-nav site-header">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
