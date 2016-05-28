@@ -6,13 +6,12 @@
 # 'jekyll serve'. If you change this file, please restart the server process.
 
 # Site settings
-title: The bear's lair
+title: The Bear's Lair
 email: your-email@domain.com
 description: > # this means to ignore newlines until "baseurl:"
-  The bear's lair is a public collection of RNA-seq papers combined with
-  live analysis done by Kallisto and Sleuth. Our aim is to make RNA-seq
-  data and analysis both publicly available and easy to view without
-  multiple processors.
+  The Bear's Lair is a public collection of RNA-seq papers combined with
+  live analysis done by kallisto and sleuth. Our aim is to make RNA-Seq
+  analysis both publicly available and accessible for exploratory data analysis.
 baseurl: "/lair" # the subpath of your site, e.g. /blog
 url: "http://pachterlab.github.io" # the base hostname & protocol for your site
 github_username:  jekyll
