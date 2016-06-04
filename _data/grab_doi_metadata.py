@@ -1,11 +1,11 @@
 import os, json, urllib2, sys
-sys.path.append('/home/psturm/bears_analyses')
+sys.path.append('/home/bears_analyses')
 from species import species_dict
 
 base_dir = 'http://api.crossref.org/works/'
 json_dictionaries = []
 
-for subdir, dirs, files in os.walk("/home/psturm/bears_analyses/"):
+for subdir, dirs, files in os.walk("/home/bears_analyses/"):
     if 'config.json' in files:
         with open(subdir + '/config.json') as json_file:
             dictionary = json.load(json_file)
