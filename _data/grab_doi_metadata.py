@@ -39,6 +39,11 @@ for subdir, dirs, files in os.walk("/home/bears_analyses/"):
                         date_parts = read_dict['published-online']['date-parts'][0]
                         date = '-'.join(str(x) for x in date_parts)
                         date += " online"
+                    elif 'indexed' in read_dict:
+                        date_parts = read_dict['indexed']['date-parts'][0]
+                        date = '-'.join(str(x) for x in date_parts)
+                        date += " indexed"
+
                     dictionary['fasta-link'] = species_dict[dictionary['species']]
                     dictionary['species'] = dictionary['species'].capitalize()
                     dictionary['species'] = dictionary['species'].replace('_', ' ')
